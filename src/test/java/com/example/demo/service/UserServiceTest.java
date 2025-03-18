@@ -35,7 +35,7 @@ public class UserServiceTest {
         for(int id : new int[]{1,2,3}) {
             User user = userService.findUser(id);
             assertNotNull(user, "User is null");
-            System.out.println("User " + id + ": " + user);
+            //System.out.println("User " + id + ": " + user);
         }
     }
 }
