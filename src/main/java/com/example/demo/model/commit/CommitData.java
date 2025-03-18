@@ -3,26 +3,12 @@ package com.example.demo.model.commit;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import com.fasterxml.jackson.annotation.*;
 
 import javax.annotation.processing.Generated;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "author",
-    "committer",
-    "message",
-    "tree",
-    "url",
-    "comment_count",
-    "verification"
-})
-@Generated("jsonschema2pojo")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CommitData {
 
     @JsonProperty("author")
@@ -39,8 +25,6 @@ public class CommitData {
     private Integer commentCount;
     @JsonProperty("verification")
     private Verification verification;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     @JsonProperty("author")
     public Author getAuthor() {
@@ -110,16 +94,6 @@ public class CommitData {
     @JsonProperty("verification")
     public void setVerification(Verification verification) {
         this.verification = verification;
-    }
-
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
     }
 
 }
