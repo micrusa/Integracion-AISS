@@ -3,25 +3,12 @@ package com.example.demo.model.user;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import com.fasterxml.jackson.annotation.*;
 
 import javax.annotation.processing.Generated;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-        "page",
-        "per_page",
-        "total",
-        "total_pages",
-        "data",
-        "support"
-})
-@Generated("jsonschema2pojo")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ListUsers {
 
     @JsonProperty("page")
@@ -34,8 +21,6 @@ public class ListUsers {
     private Integer totalPages;
     @JsonProperty("data")
     private List<User> data;
-    @JsonProperty("support")
-    private Support support;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
@@ -87,16 +72,6 @@ public class ListUsers {
     @JsonProperty("data")
     public void setData(List<User> data) {
         this.data = data;
-    }
-
-    @JsonProperty("support")
-    public Support getSupport() {
-        return support;
-    }
-
-    @JsonProperty("support")
-    public void setSupport(Support support) {
-        this.support = support;
     }
 
     @JsonAnyGetter

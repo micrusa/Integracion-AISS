@@ -6,18 +6,11 @@ import javax.annotation.processing.Generated;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-        "data",
-        "support"
-})
-@Generated("jsonschema2pojo")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SingleUser {
 
     @JsonProperty("data")
     private User data;
-    @JsonProperty("support")
-    private Support support;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
@@ -29,16 +22,6 @@ public class SingleUser {
     @JsonProperty("data")
     public void setData(User data) {
         this.data = data;
-    }
-
-    @JsonProperty("support")
-    public Support getSupport() {
-        return support;
-    }
-
-    @JsonProperty("support")
-    public void setSupport(Support support) {
-        this.support = support;
     }
 
     @JsonAnyGetter
